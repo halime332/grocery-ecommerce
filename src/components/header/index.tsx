@@ -4,10 +4,15 @@ import { MdOutlineStore } from "react-icons/md"
 import SearchForm from "./search-form"
 import { RiFileList3Line } from "react-icons/ri"
 import { FaShoppingCart } from "react-icons/fa"
+import { getCartItems } from "@/service/basket-service";
 
-const Header: FC = () => {
+const Header: FC = async () => {
+    const { cart } = await getCartItems();
+
+    const totalItems = cart?.items.reduce((acc, item) => acc + item.quantity, 0);
+
     return (
-        <div className="flex bg-white justify-between items-center py-5 px-7 lg:py-6 lg:px-10 shadow-sm">
+        <div className=" sticky top-0 z-10 flex bg-white justify-between items-center py-5 px-7 lg:py-6 lg:px-10 shadow-sm">
             <Link href="/" className="text-green-600 font-bold text-2xl lg:text-3xl flex items-center  gap-2">
                 <MdOutlineStore />
                 <span>Manav </span>
@@ -27,13 +32,13 @@ const Header: FC = () => {
                     <div className="relative ">
                         <FaShoppingCart className="text-2xl" />
                         <span className="absolute shadow-sm font-bold right-[-20px] text-sm top-[-20px] bg-green-500 text-white
-                        rounded-full size-6 grid place-items-center">0</span>
+                        rounded-full size-6 grid place-items-center">{totalItems}</span>
                     </div>
                     <span className="max-md:hidden">Sepetim</span>
                 </Link>
             </div>
         </div>
     )
-}
+};
 
-export default Header
+export default Header;

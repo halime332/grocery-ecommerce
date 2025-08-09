@@ -4,6 +4,8 @@ import { addToBasket } from "@/service/basket-service";
 import { FC, useState } from "react";
 import { FaPlus, FaSpinner } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+
 
 interface Props {
     productId: string;
@@ -11,6 +13,8 @@ interface Props {
 
 const CardAction: FC<Props> = ({ productId }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const router = useRouter();
+
     // sepete ekle
     const handleAddToCart = () => {
         setIsLoading(true);

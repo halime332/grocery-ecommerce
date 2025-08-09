@@ -4,6 +4,8 @@ import Link from "next/link";
 import { FC } from "react";
 import { TbWeight } from "react-icons/tb";
 import CardAction from "./card-action";
+import OrganicBage from "../detail/organic-badge";
+
 
 interface Props {
     product: Product;
@@ -19,6 +21,7 @@ const Card: FC<Props> = ({ product }) => {
                         src={product.photo}
                         alt={product.name}
                         className="object-cover" fill />
+                    <OrganicBage isOrganic={product.isOrganic} />
                 </div>
             </Link>
 
