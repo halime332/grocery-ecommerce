@@ -20,7 +20,7 @@ const CardAction: FC<Props> = ({ productId }) => {
         setIsLoading(true);
         addToBasket(productId, 1)
             .then(() => {
-
+                router.refresh()
                 toast.success("Ürün sepete eklendi");
             })
             .catch(() => {

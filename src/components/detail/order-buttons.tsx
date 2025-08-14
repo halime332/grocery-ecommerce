@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { addToBasket, checkoutSingleItem } from "@/service/basket-service";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface Props {
     grocery: Product;
@@ -15,6 +16,7 @@ interface Props {
 const OrderButtons: FC<Props> = ({ grocery }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [quantity, setQuantity] = useState<number>(0);
+    const router = useRouter();
 
 
     //sepete ekle
@@ -25,6 +27,7 @@ const OrderButtons: FC<Props> = ({ grocery }) => {
         addToBasket(grocery._id, quantity)
             .then(() => {
                 setQuantity(0);
+                router.refresh();
                 toast.success(`${quantity} ${grocery.unit} ${grocery.name} sepete eklendi`);
             })
             .catch((err) => {

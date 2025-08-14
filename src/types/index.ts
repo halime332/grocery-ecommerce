@@ -35,7 +35,7 @@ type Cart = {
 
 type Order = {
     _id: string;
-    products: Product[];
+    product: Product;
     quantity: number;
     money_spend: number;
     currency: "TRY";

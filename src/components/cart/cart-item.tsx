@@ -28,7 +28,7 @@ const CartItem: FC<Props> = ({ item }) => {
                     <h3 className="text-lg font-semibold text-gray-800 hover:text-green-600 transition">{item.grocery.name}</h3>
                 </Link>
 
-                <p className="text-gray-600 text-sm">{item.grocery.unit}</p>
+                <p className="text-gray-600 text-sm">{item.quantity} {item.grocery.unit}</p>
                 <p className="text-green-600 font-medium">{item.grocery.price}₺</p>
 
             </div>
