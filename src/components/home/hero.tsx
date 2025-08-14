@@ -14,7 +14,7 @@ const Hero: FC = () => {
                 <h1 className="text-3xl font-bold">Organik Ürünler <br /> Uygun Fiyata
                 </h1>
                 <p className="my-3">Doğal ve organik ürünlerle sağlıklı beslenmek artık çok kolay.</p>
-                <button className="bg-white inline-block w-fit text-green-700 py-2 px-4 rounded-md hover:bg-green-50 transition cursor">Oranik Üürnler</button>
+                <a href="/organic" className="bg-white inline-block w-fit text-green-700 py-2 px-4 rounded-md hover:bg-green-50 transition cursor">Organik Ürünler</a>
             </div>
         </div>);
 };

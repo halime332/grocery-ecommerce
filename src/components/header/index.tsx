@@ -20,6 +20,10 @@ const Header: FC = async () => {
 
             <SearchForm />
             <div className="flex items-center gap-5">
+                <Link href="/organic" className="text-lg relative text-gray-700 hover:text-green-600 transition-colors
+                 flex items-center gap-2">
+                    <span className="max-md:hidden">Organik Ürünler</span>
+                </Link>
                 <Link href="/orders" className="text-lg relative text-gray-700 hover:text-green-600 transition-colors
                  flex items-center gap-2">
                     <RiFileList3Line className="text-2xl" />
